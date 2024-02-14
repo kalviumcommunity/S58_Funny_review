@@ -36,3 +36,6 @@ If you're interested in contributing to Funny Restaurants Review, follow these s
 
 Happy reviewing and laughing!
 
+
+# Deployed link By render
+https://funny-review.onrender.com/ping
