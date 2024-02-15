@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const port = process.env.PUBLIC_PORT || 3000;
+const port = process.env.PUBLIC_PORT || 7000;
 
 // ping route
 app.get('/ping',(req , res)=>{
-  res.send({"msg":"pong"})
+  res.send("pong")
 })
 
 if (require.main === module) {
@@ -13,4 +13,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = app;
+module.exports = app; 
