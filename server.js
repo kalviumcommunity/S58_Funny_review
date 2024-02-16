@@ -1,16 +1,39 @@
 const express = require('express');
 const app = express();
-const port = process.env.PUBLIC_PORT || 7000;
+const dotenv=require('dotenv');
+dotenv.config()
+const port = process.env.PUBLIC_PORT || 3000;
+const {connection}=require('./config/db')
+const restaurantsData= require('./config/database');
+const { restaurantsModel } = require('./model/restaurants');
 
-// ping route
-app.get('/ping',(req , res)=>{
-  res.send("pong")
+
+app.get('/ping', (req, res) => {
+  res.json({ message: 'pong' });
+});
+
+app.post('/postdata',(req,res)=>{
+  restaurantsModel.insertMany(restaurantsData)
+  .then((result) => {
+    console.log('Inserted', result.length, 'documents into the collection');
+  })
+  .catch((error) => {
+    console.error('Error inserting documents:', error);
+  });
 })
 
-if (require.main === module) {
-  app.listen(port, () => {
-    console.log(`server running on PORT: ${port}`);
-  });
-}
 
-module.exports = app; 
+app.listen(port,async () => { 
+  try {
+    await connection;
+    console.log("Connected to DB successfully")
+    
+  } catch (error) {
+     console.log("Error connecting to DB");
+     console.log(error);
+  }
+
+
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});})
