@@ -147,4 +147,4 @@ let data=[
 
 ];
 
-module.exports = restaurantsData;
+module.exports = data;

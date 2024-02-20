@@ -4,7 +4,7 @@ const dotenv=require('dotenv');
 dotenv.config()
 const port = process.env.PUBLIC_PORT || 3000;
 const {connection}=require('./config/db')
-const restaurantsData= require('./config/database');
+const restaurantsData= require('./config/data');
 const { restaurantsModel } = require('./model/restaurants');
 
 
