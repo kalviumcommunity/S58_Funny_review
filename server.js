@@ -9,7 +9,7 @@ const { restaurantsModel } = require('./model/restaurants');
 
 
 app.get('/ping', (req, res) => {
-  res.json({ message: 'pong' });
+  res.json({ message: 'pong' }); 
 });
 
 app.post('/postdata',(req,res)=>{

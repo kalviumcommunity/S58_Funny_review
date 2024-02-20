@@ -1,6 +1,6 @@
 const { restaurantsModel } = require("../model/restaurants");
 
-let data=[
+let restaurantsData=[
     {
     Sr_No: 1,
     Name: 'Pizza Freakers',
@@ -147,4 +147,4 @@ let data=[
 
 ];
 
-module.exports = data;
+module.exports = restaurantsData;
