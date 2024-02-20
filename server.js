@@ -33,7 +33,5 @@ app.listen(port,async () => {
      console.log(error);
   }
 
-
-app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
-});})
+})
