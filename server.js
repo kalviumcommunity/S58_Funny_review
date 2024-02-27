@@ -6,6 +6,7 @@ const port = process.env.PUBLIC_PORT || 3000;
 const {connection}=require('./config/db')
 const restaurantsData= require('./config/data');
 const { restaurantsModel } = require('./model/restaurants');
+const {router} = require('./routes')
 
 
 app.get('/ping', (req, res) => {
