@@ -1,16 +1,27 @@
-import React from 'react'
+import {React, useEffect} from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 export default function Main() {
+
+  const [data,setData] =useState([])
+ 
+  useEffect(()=>{
+    axios.get('http://localhost:7777/routes/Getdata')
+    .then((user)=>{setData(user.data);
+    console.log(user.data)})
+    .catch((error)=>{console.log(error)})
+  },[])
+
+
   
   return (
     <div>
-      Sr_No: 1,<br></br>
-    Name: 'Pizza Freakers',<br></br>
-    img_url: "https://source.unsplash.com/random/200x200?sig=3",<br></br>
-    Ratings: 4,<br></br>
-    Review: "Sandwiches packed to perfection. Sauce dripping, napkins flying",<br></br>
-    Location: 'Chandigarh'<br></br>
-    
+      {
+      data.map(user=>{
+        return <div>{user.Name}</div>
+      })
+      }
     </div>
   ) 
 }
