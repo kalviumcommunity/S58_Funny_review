@@ -9,8 +9,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path='/' Component={Home}/>
-        <Route path='/login' Component={Login}/>
+        <Route exact path='/home' Component={Home}/>
+        <Route path='/' Component={Login}/>
         <Route path='restaurant/:id' Component={RestaurantPage}/>
       </Routes>
     </BrowserRouter>

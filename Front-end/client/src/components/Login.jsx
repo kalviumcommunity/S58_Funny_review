@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function Login() {
 
-  const [logInfo, setLogInfo]= useState({
+  const [signInfo, setSignInfo]= useState({
     username:"",
     password:""
   })
@@ -12,7 +12,7 @@ export default function Login() {
   const [data,setData]= useState([])
 
   useEffect(()=>{
-    axios.get('http://localhost:7777/routes/getusers')
+    axios.get('http://localhost:7777/user/')
     .then((user)=>{setData(user.data);
     console.log(user.data)})
     .catch((error)=>{console.log(error)})
@@ -22,17 +22,17 @@ export default function Login() {
   const handleChange=(e,field)=>{
     e.preventDefault(); 
     if (field=="username"){
-      setLogInfo({...logInfo,username:e.target.value})
+      setSignInfo({...signInfo,username:e.target.value})
     }
     else{
-      setLogInfo({...logInfo, password : e.target.value})
+      setSignInfo({...signInfo, password : e.target.value})
     }
   }
   
 
   const handleSubmit=(e)=>{
     e.preventDefault(); 
-    axios.post('http://localhost:7777/routes/adduser', logInfo)
+    axios.post('http://localhost:7777/signUp/', signInfo)
     .then((response) => {
         console.log(response.data);
     })
