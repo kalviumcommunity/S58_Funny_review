@@ -38,11 +38,22 @@ RestaurantsRouter.post('/postuser',(req,res)=>{
 //Read : Get all the restaurant details
 console.log(restaurantsModel);
 
-RestaurantsRouter.get('/Getdata', async (req,res)=>{
+RestaurantsRouter.get('/restaurant/', async (req,res)=>{
   console.log(restaurantsModel)
   try {
-    const alldata= await restaurantsModel.find();
-    res.json(alldata);
+    const data= await restaurantsModel.find();
+    res.json(data);
+  } catch (error) {
+    console.log('Error getting the data:', error);
+    res.status(500).json({ error: 'Failed to get the data' });
+  }
+})
+
+RestaurantsRouter.get('/restaurant/:id', async (req,res)=>{
+  console.log(restaurantsModel)
+  try {
+    const data= await restaurantsModel.findById(req.params.id);
+    res.json(data);
   } catch (error) {
     console.log('Error getting the data:', error);
     res.status(500).json({ error: 'Failed to get the data' });
@@ -50,7 +61,7 @@ RestaurantsRouter.get('/Getdata', async (req,res)=>{
 })
 
 // Read: Get all user details
-RestaurantsRouter.get('/getusers', async (req,res)=>{
+RestaurantsRouter.get('/user/', async (req,res)=>{
   try {
     const alldata= await usersModel.find();
     res.json(alldata);
@@ -62,7 +73,7 @@ RestaurantsRouter.get('/getusers', async (req,res)=>{
 
 
 //POST: Add one data
-RestaurantsRouter.post('/AddData', async (req, res) => {
+RestaurantsRouter.post('/restaurant/', async (req, res) => {
   try{
     const data = {
       "Sr_No": req.body.Sr_No,
@@ -80,8 +91,27 @@ RestaurantsRouter.post('/AddData', async (req, res) => {
   }
 })
 
+//POST : Post review
+RestaurantsRouter.post('/restaurant/:id/review', async (req,res)=>{
+  try {
+    data = await restaurantsModel.findById(req.params.id)
+    updatedData = await restaurantsModel.findByIdAndUpdate(
+        req.params.id,
+        {
+          "Review": [...data.Review, req.body.review],
+        },
+        {new: true}
+    );
+    res.json(updatedData);
+
+  } catch (error) {
+    console.log('Error updating the data:', error);
+    res.status(500).json({ error: 'Failed to update the data' });
+  }
+})
+
 // POSt : Add one user
-RestaurantsRouter.post('/adduser', async (req, res) => {
+RestaurantsRouter.post('/user/', async (req, res) => {
   try{
     const data = {
       "username": req.body.username,
@@ -98,7 +128,7 @@ RestaurantsRouter.post('/adduser', async (req, res) => {
 
 
 //Update : Update the data 
-RestaurantsRouter.put('/Updatedata/:id', async (req,res)=>{
+RestaurantsRouter.put('/restaurant/:id', async (req,res)=>{
   try {
     Updatedata = await restaurantsModel.findByIdAndUpdate(
         req.params.id,
@@ -121,7 +151,7 @@ RestaurantsRouter.put('/Updatedata/:id', async (req,res)=>{
   
 //Delete : Delete the data
 
-RestaurantsRouter.delete('/Deletedata/:id', async (req,res)=>{
+RestaurantsRouter.delete('/restaurant/:id', async (req,res)=>{
     try { 
         const deletedata = await restaurantsModel.findByIdAndDelete(req.params.id);
         res.json(deletedata);
