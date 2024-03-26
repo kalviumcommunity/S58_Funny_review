@@ -55,21 +55,7 @@ export default function Login() {
         </label>
         <br />
         <button type='submit' >SIGNUP</button>
-      </form>
-      <div>
-        <table>
-      {
-      data.map(user=>{
-        return <tr>
-            <td>username: {user.username}</td>
-            <td>password: {user.password}</td>
-          </tr>
-      })
-      }
-      </table>
-    </div>
-
-    
+      </form>    
     </>
    
   )

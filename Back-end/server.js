@@ -14,7 +14,7 @@ app.get("/",(req,res)=>{
   res.send("Hello World!")
 })
 
-app.use('/routes', RestaurantsRouter);
+app.use('', RestaurantsRouter);
 
 app.listen(port,async() => { 
   try {

@@ -4,7 +4,7 @@
         "Name": "Pizza Freakers",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Sandwiches packed to perfection. Sauce dripping, napkins flying",
+        "Review": ["Sandwiches packed to perfection. Sauce dripping, napkins flying"],
         "Location": "Chandigarh"
     },
     {
@@ -12,7 +12,7 @@
         "Name": "The Urban Pind",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Milkshakes that defy gravity. Sip, slurp, and surrender to sweetness",
+        "Review":[ "Milkshakes that defy gravity. Sip, slurp, and surrender to sweetness"],
         "Location": "Chandigarh"
     },
     {
@@ -20,7 +20,7 @@
         "Name": "Burgerama",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Burgers drowning in cheese and chili. Prepare for a delicious mess!",
+        "Review": ["Burgers drowning in cheese and chili. Prepare for a delicious mess!"],
         "Location": "Chandigarh"
     },
     {
@@ -28,7 +28,7 @@
         "Name": "Wok N Tok",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Tacos with a tropical twist. Aloha to flavor town",
+        "Review": ["Tacos with a tropical twist. Aloha to flavor town"],
         "Location": "Chandigarh"
     },
     {
@@ -36,7 +36,7 @@
         "Name": "Rustik Punjab",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Dumplings to die for. So good, you'll want to marry them",
+        "Review": ["Dumplings to die for. So good, you'll want to marry them"],
         "Location": "Punjab"
     },
     {
@@ -44,7 +44,7 @@
         "Name": "Crystal Restraunt",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Fluffy clouds of pancakes. Toppings galore, coma guaranteed",
+        "Review":[ "Fluffy clouds of pancakes. Toppings galore, coma guaranteed"],
         "Location": "Punjab"
     },
     {
@@ -52,7 +52,7 @@
         "Name": "Punjab Province",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Tiny burgers, big flavor. Like a carnival for your taste buds",
+        "Review": ["Tiny burgers, big flavor. Like a carnival for your taste buds"],
         "Location": "Punjab"
     },
     {
@@ -60,7 +60,7 @@
         "Name": "Urban Rasoi",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Grandma's secret recipe meets a sprinkle of mystery. Delightfully confusing",
+        "Review": ["Grandma's secret recipe meets a sprinkle of mystery. Delightfully confusing"],
         "Location": "Punjab"
     },
     {
@@ -68,7 +68,7 @@
         "Name": "Dragon House",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Spaghetti on a pizza? It's a pasta lover's fever dream",
+        "Review":[ "Spaghetti on a pizza? It's a pasta lover's fever dream"],
         "Location": "Jaipur"
     },
     {
@@ -76,7 +76,7 @@
         "Name": "Suvarna Mahal",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Transported to Mexico with each bite. Margaritas not included",
+        "Review": ["Transported to Mexico with each bite. Margaritas not included"],
         "Location": "Jaipur"
     },
     {
@@ -84,7 +84,7 @@
         "Name": "Peacock Restraunt",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Burritos as big as flotation devices. Chew carefully to avoid concussion",
+        "Review": ["Burritos as big as flotation devices. Chew carefully to avoid concussion"],
         "Location": "Jaipur"
     },
     {
@@ -92,7 +92,7 @@
         "Name": "Kebab Nation",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "The 'Cowabunga Burger' a beefy beast. Roll out the door afterward",
+        "Review": ["The 'Cowabunga Burger' a beefy beast. Roll out the door afterward"],
         "Location": "Jaipur"
     },
     {
@@ -100,7 +100,7 @@
         "Name": "Tamra Restraunt",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Secret society of sushi lovers. Don't ask about the 'mystery roll",
+        "Review": ["Secret society of sushi lovers. Don't ask about the 'mystery roll"],
         "Location": "Delhi"
     },
     {
@@ -108,7 +108,7 @@
         "Name": "Mughlai Junction",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Nachos reaching the heavens. Watch out for seagulls",
+        "Review": ["Nachos reaching the heavens. Watch out for seagulls"],
         "Location": "Delhi"
     },
     {
@@ -116,7 +116,7 @@
         "Name": "Zaffran",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Fried chicken like a thousand suns. Napkins required for the mess",
+        "Review": ["Fried chicken like a thousand suns. Napkins required for the mess"],
         "Location": "Delhi"
     },
     {
@@ -124,7 +124,7 @@
         "Name": "Minar Restraunt",
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
-        "Review": "Fluffy clouds of pancakes. Toppings galore, coma guaranteed",
+        "Review": ["Fluffy clouds of pancakes. Toppings galore, coma guaranteed"],
         "Location": "Delhi"
     }
 ]
