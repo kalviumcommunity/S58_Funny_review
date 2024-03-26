@@ -4,6 +4,13 @@ const { restaurantsModel } = require('./model/restaurants');
 const restaurantsData= require('./config/data.json');
 const {usersModel} = require('./model/login')
 const usersData = require('./config/loginData.json')
+const Joi = require('joi');
+
+// signup Validate
+const signUpSchema = Joi.object({
+    username:Joi.string().required(),
+    password: Joi.string().min(5).max(12).required()
+})
 
 
 RestaurantsRouter.get("/",(req,res)=>{
@@ -111,14 +118,23 @@ RestaurantsRouter.post('/restaurant/:id/review', async (req,res)=>{
 })
 
 // POSt : Add one user
-RestaurantsRouter.post('/user/', async (req, res) => {
+RestaurantsRouter.post('/signUp/', async (req, res) => {
+
+  
+  
   try{
     const data = {
       "username": req.body.username,
       "password": req.body.password
     }
-    const result = await usersModel.insertMany(data)
-    res.json(result);
+    const {error,value}=signUpSchema.validate(data)
+    if (error){
+      console.log("Invalid request")
+    }
+    else{
+      const result = await usersModel.insertMany(data)
+      res.json(result);
+    }
   } catch (error) {
     console.log('Error posting the data:', error);
     res.status(500).json({ error: 'Failed to post the data' });
