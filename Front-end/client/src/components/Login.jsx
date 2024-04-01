@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import {useEffect} from 'react';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+// import {useHistory} from 'react-router-dom'
 
 export default function Login() {
 
+  // const history = useHistory();
+
   const [signInfo, setSignInfo]= useState({
+    username:"",
+    password:""
+  })
+  const [logInfo, setLogInfo]= useState({
     username:"",
     password:""
   })
@@ -29,6 +37,16 @@ export default function Login() {
     }
   }
   
+  const handleLogInChange=(e,field)=>{
+    e.preventDefault(); 
+    if (field=="username"){
+      setLogInfo({...logInfo,username:e.target.value})
+    }
+    else{
+      setLogInfo({...logInfo, password : e.target.value})
+    }
+   
+  }
 
   const handleSignUpSubmit=(e)=>{
     e.preventDefault(); 
@@ -40,6 +58,21 @@ export default function Login() {
         console.log(error);
     });
   }
+
+  const handleLogInSubmit=(e)=>{
+    e.preventDefault(); 
+    axios.post('http://localhost:7777/logIn/', logInfo)
+    .then((response) => {
+        Cookies.set('username', response.data.username);
+        Cookies.set('password', response.data.password);
+        console.log(response.data)
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+  } 
+
+
 
   return (
     <>
