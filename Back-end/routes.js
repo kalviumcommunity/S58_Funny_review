@@ -5,6 +5,8 @@ const restaurantsData= require('./config/data.json');
 const {usersModel} = require('./model/login')
 const usersData = require('./config/loginData.json')
 const Joi = require('joi');
+const bcrypt = require('bcrypt')
+
 
 // signup Validate
 const signUpSchema = Joi.object({
@@ -120,14 +122,18 @@ RestaurantsRouter.post('/restaurant/:id/review', async (req,res)=>{
 // POSt : Add one user
 RestaurantsRouter.post('/signUp/', async (req, res) => {
 
-  
-  
   try{
+    const salt = await bcrypt.genSalt();
+    const hashedPassword= await bcrypt.hash(req.body.password, salt);
     const data = {
       "username": req.body.username,
-      "password": req.body.password
+      "password": hashedPassword
     }
-    const {error,value}=signUpSchema.validate(data)
+    const validateData = {
+      "username": req.body.username,
+      "password": req.body.username
+    }
+    const {error,value}=signUpSchema.validate(validateData)
     if (error){
       console.log("Invalid request")
     }
@@ -140,6 +146,36 @@ RestaurantsRouter.post('/signUp/', async (req, res) => {
     res.status(500).json({ error: 'Failed to post the data' });
   }
 })
+// LOGIN For user
+RestaurantsRouter.post('/LogIn/', async (req, res) => {
+    const validateData = {
+      "username": req.body.username,
+      "password": req.body.password
+    }
+    const {error,value}=signUpSchema.validate(validateData)
+    if (error){
+      console.log("Invalid request")
+    }
+    else{
+      const users= await usersModel.find()
+      const user = users.find(user=> user.username === req.body.username)
+      if( user==null){
+        return res.status(400).send("User dont exist")
+      }
+      try{
+        if(await bcrypt.compare(req.body.password, user.password)){
+          res.send(user)
+        } else{
+          res.send("Invalid password")
+        } 
+      }catch{
+        res.status(500).send()
+          
+      }
+    }
+ 
+})
+
 
 
 

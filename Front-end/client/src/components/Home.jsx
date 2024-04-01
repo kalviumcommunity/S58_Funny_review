@@ -6,7 +6,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { Box } from "@mui/material";
+import Cookies from 'js-cookie';
+
 
 export default function Main() {
   const [data, setData] = useState([]);
@@ -58,9 +59,18 @@ export default function Main() {
     handleLocation();
   }, [location]);
 
+  const handleLogout=(e)=>{
+    try {
+      Cookies.remove('username');
+      Cookies.remove('password');
+  } catch (error) {
+      console.error("Error while logging out:", error);
+  }
+  }
   return (
     <div>
       <div>
+       <button onClick={handleLogout}>LogOut</button>
         <FormControl style={{width: '300px'}}>
           <InputLabel id="simple-select-label">Location</InputLabel>
           <Select
