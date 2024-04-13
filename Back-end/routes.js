@@ -6,6 +6,7 @@ const {usersModel} = require('./model/login')
 const usersData = require('./config/loginData.json')
 const Joi = require('joi');
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken');
 
 
 // signup Validate
@@ -82,7 +83,7 @@ RestaurantsRouter.get('/user/', async (req,res)=>{
 
 
 //POST: Add one data
-RestaurantsRouter.post('/restaurant/', async (req, res) => {
+RestaurantsRouter.post('/Addrestaurant/', async (req, res) => {
   try{
     const data = {
       "Sr_No": req.body.Sr_No,
@@ -90,7 +91,8 @@ RestaurantsRouter.post('/restaurant/', async (req, res) => {
       "img_url": req.body.img_url,
       "Ratings": req.body.Ratings,
       "Review": req.body.Review,
-      "Location": req.body.Location
+      "Location": req.body.Location,
+      "Created_by": req.body.Created_by
     }
     const result = restaurantsModel.insertMany(data)
     res.json(result);
@@ -138,8 +140,15 @@ RestaurantsRouter.post('/signUp/', async (req, res) => {
       console.log("Invalid request")
     }
     else{
-      const result = await usersModel.insertMany(data)
-      res.json(result);
+      const users= await usersModel.find()
+      const user = users.find(user=> user.username === req.body.username)
+      if( user==null){
+        const result = await usersModel.insertMany(data)
+        res.json(result); 
+      }else{
+        res.json({error:"User Already Exist"})
+      }
+      
     }
   } catch (error) {
     console.log('Error posting the data:', error);
@@ -164,13 +173,13 @@ RestaurantsRouter.post('/LogIn/', async (req, res) => {
       }
       try{
         if(await bcrypt.compare(req.body.password, user.password)){
-          res.send(user)
+          const token = jwt.sign(user.username, secretKey, { expiresIn: "1h" });
+          res.send(token)
         } else{
           res.send("Invalid password")
         } 
       }catch{
         res.status(500).send()
-          
       }
     }
  
@@ -192,6 +201,7 @@ RestaurantsRouter.put('/restaurant/:id', async (req,res)=>{
           "Review": req.body.Review,
           "Location": req.body.Location
         }
+        
     );
     res.json(Updatedata);
 
@@ -220,7 +230,6 @@ RestaurantsRouter.delete('/Deletedata', async (req,res)=>{
   try { 
       const deletedata = await restaurantsModel.deleteMany({})
       res.json(deletedata)
-      
   } catch (error) {
       console.log('Error deleting the data:', error);
       res.status(500).json({ error: 'Failed to delete the data' });

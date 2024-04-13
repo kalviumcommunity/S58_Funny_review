@@ -13,6 +13,16 @@ export default function Main() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [location, setLocation] = useState("");
+  const [addNew , setAddNew] = useState(false);
+  const [submitted,setSubmit]=useState(false);
+  const [field, setField]= useState({
+    Name:"",
+    img_url:"",
+    Location:"",
+    Ratings:"",
+    Review:"",
+    Created_by:""
+})
 
   useEffect(() => {
     axios
@@ -62,11 +72,34 @@ export default function Main() {
   const handleLogout=(e)=>{
     try {
       Cookies.remove('username');
-      Cookies.remove('password');
   } catch (error) {
       console.error("Error while logging out:", error);
   }
   }
+  const handleAdd=()=>{
+    console.log("Adding data");
+    setAddNew(true);
+  }
+
+  const handleSubmit = () => {
+    setField({...field,Created_by:"Khushi"})
+    setField({...field,Location:location})
+    
+    axios
+      .post(`http://localhost:7777/Addrestaurant/`, {field})
+      .then((res) => {
+        setData(res.data);
+        setField([]);
+        setSubmit(true)
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+
+
   return (
     <div>
       <div>
@@ -89,6 +122,9 @@ export default function Main() {
             <MenuItem value={"Delhi"}>Delhi</MenuItem>
           </Select>
         </FormControl>
+      </div>
+      <div>
+        <h1>Filter restro by user</h1>
       </div>
       <table style={{ border: "2px solid black" }}>
         <tbody>
@@ -128,6 +164,44 @@ export default function Main() {
           })}
         </tbody>
       </table>
+      
+      <button onClick={()=>handleAdd()}>+</button>
+      {addNew ? (
+        <div className="addBox">
+          <h1>lets add new restroooo</h1>
+          <form action='' onSubmit={handleSubmit}>
+            <div className='box'>        
+                
+                <input 
+                    value={field.Name} type="text" placeholder='Enter new Name' onChange={(e)=>setField({...field,Name:e.target.value})}
+                />
+                {submitted==true && field.Name==""?<p>Enter new Restaurant Name</p>:null}
+                
+                {submitted==true && field.Location==""?<p>Enter new Restaurant Name</p>:null}
+                <input 
+                    value={field.Ratings} type="text" placeholder='Rate the restaurant' onChange={(e)=>setField({...field,Ratings:e.target.value})}
+                />
+                {submitted==true && field.Ratings==""?<p>Enter New Restaurant Ratings</p>:null}
+                <input 
+                    value={field.Review} type="text" placeholder='Post a funny Review' onChange={(e)=>setField({...field,Review:e.target.value})}
+                />
+
+                {submitted==true && field.Review==""?<p>Enter your Reviews.</p>:null}
+
+
+                    <div className='submit-bn'>
+                        <button type='submit'>submit</button>
+                    </div>
+                
+            </div>
+        </form>
+        </div>
+        ) : ( 
+          <div></div>
+        )}
+   
+
     </div>
+    
   );
 }
