@@ -199,7 +199,8 @@ RestaurantsRouter.put('/restaurant/:id', async (req,res)=>{
           "img_url": req.body.img_url,
           "Ratings": req.body.Ratings,
           "Review": req.body.Review,
-          "Location": req.body.Location
+          "Location": req.body.Location,
+          "Created_by": req.body.Created_by
         }
         
     );

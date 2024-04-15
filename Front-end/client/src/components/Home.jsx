@@ -17,6 +17,7 @@ export default function Main() {
   const [addNew , setAddNew] = useState(false);
   const [submitted,setSubmit]=useState(false);
   const [userData, setUserData]= useState([])
+  const [filteredUser, setFilteredUser]= useState([])
   const [field, setField]= useState({
     Name:"",
     img_url:"",
@@ -26,7 +27,7 @@ export default function Main() {
     Created_by:""
 })
   
-  const [userdisplay,setUserDisplay]=useState(false)
+  
   useEffect(()=>{
     axios.get('http://localhost:7777/user/')
     .then((user)=>{setUserData(user.data);
@@ -108,10 +109,16 @@ export default function Main() {
       });
   };
 
-  const handleUserReview=()=>{
-    console.log("Working")
-    setUserDisplay(true)
-  }
+  const handleUserSelect = (event) => {
+    const selectedUser = event.target.value;
+    setUser(selectedUser);
+    setFilteredData(
+      data.filter((restaurant) => {
+        return restaurant.Created_by === selectedUser;
+      })
+    );
+  };
+  
 
 
 
@@ -138,12 +145,8 @@ export default function Main() {
           </Select>
         </FormControl>
       </div>
-      <button onClick={handleUserReview}>
-        All reviews by Users
-      </button>
-      <div>
-        <h1>Filter restro by user</h1>
-      </div>
+      
+      
       <table style={{ border: "2px solid black" }}>
         <tbody>
           <tr>
@@ -218,30 +221,35 @@ export default function Main() {
           <div></div>
         )}
 
-    { <FormControl style={{width: '300px'}}>
-              <InputLabel id="simple-select-label">Users</InputLabel>
-              <Select
-                labelId="simple-select-label"
-                id="simple-select"
+<FormControl style={{ width: '300px' }}>
+  <InputLabel id="user-select-label">Users</InputLabel>
+  <Select
+    labelId="user-select-label"
+    id="user-select"
+    value={user}
+    onChange={handleUserSelect}
+    label="User"
+    autoWidth
+  >
+    {userData.map((user) => (
+      <MenuItem key={user._id} value={user.username}>
+        {user.username}
+      </MenuItem>
+    ))}
+  </Select>
+</FormControl>
+
             
-                label="Users"
-                onChange={(e) => {
-                  setLocation(e.target.value);
-                }}
-                autoWidth
-              >
-                <MenuItem value={"Jaipur"}>Jaipur</MenuItem>
-               
-              </Select>
-            </FormControl> }
+
+            
 
 
 
-
-       {userdisplay ? (console.log("yes")):(console.log("no"))}
+       
    
 
     </div>
     
   );
 }
+
