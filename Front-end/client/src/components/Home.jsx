@@ -13,8 +13,10 @@ export default function Main() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [location, setLocation] = useState("");
+  const [user,setUser]=useState("")
   const [addNew , setAddNew] = useState(false);
   const [submitted,setSubmit]=useState(false);
+  const [userData, setUserData]= useState([])
   const [field, setField]= useState({
     Name:"",
     img_url:"",
@@ -23,6 +25,14 @@ export default function Main() {
     Review:"",
     Created_by:""
 })
+  
+  const [userdisplay,setUserDisplay]=useState(false)
+  useEffect(()=>{
+    axios.get('http://localhost:7777/user/')
+    .then((user)=>{setUserData(user.data);
+    console.log(user.data)})
+    .catch((error)=>{console.log(error)})
+  },[])
 
   useEffect(() => {
     axios
@@ -98,6 +108,11 @@ export default function Main() {
       });
   };
 
+  const handleUserReview=()=>{
+    console.log("Working")
+    setUserDisplay(true)
+  }
+
 
 
   return (
@@ -123,6 +138,9 @@ export default function Main() {
           </Select>
         </FormControl>
       </div>
+      <button onClick={handleUserReview}>
+        All reviews by Users
+      </button>
       <div>
         <h1>Filter restro by user</h1>
       </div>
@@ -199,6 +217,28 @@ export default function Main() {
         ) : ( 
           <div></div>
         )}
+
+    { <FormControl style={{width: '300px'}}>
+              <InputLabel id="simple-select-label">Users</InputLabel>
+              <Select
+                labelId="simple-select-label"
+                id="simple-select"
+            
+                label="Users"
+                onChange={(e) => {
+                  setLocation(e.target.value);
+                }}
+                autoWidth
+              >
+                <MenuItem value={"Jaipur"}>Jaipur</MenuItem>
+               
+              </Select>
+            </FormControl> }
+
+
+
+
+       {userdisplay ? (console.log("yes")):(console.log("no"))}
    
 
     </div>
