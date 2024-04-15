@@ -5,7 +5,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Sandwiches packed to perfection. Sauce dripping, napkins flying"],
-        "Location": "Chandigarh"
+        "Location": "Chandigarh",
+        "Created_by" : "Simran"
     },
     {
         "Sr_No": 2,
@@ -13,7 +14,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review":[ "Milkshakes that defy gravity. Sip, slurp, and surrender to sweetness"],
-        "Location": "Chandigarh"
+        "Location": "Chandigarh",
+        "Created_by" : "Simran"
     },
     {
         "Sr_No": 3,
@@ -21,7 +23,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Burgers drowning in cheese and chili. Prepare for a delicious mess!"],
-        "Location": "Chandigarh"
+        "Location": "Chandigarh",
+        "Created_by" :"swati"
     },
     {
         "Sr_No": 4,
@@ -29,7 +32,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Tacos with a tropical twist. Aloha to flavor town"],
-        "Location": "Chandigarh"
+        "Location": "Chandigarh",
+        "Created_by" : "Akshat"
     },
     {
         "Sr_No": 5,
@@ -37,7 +41,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Dumplings to die for. So good, you'll want to marry them"],
-        "Location": "Punjab"
+        "Location": "Punjab",
+        "Created_by" :"Anushka"
     },
     {
         "Sr_No": 6,
@@ -45,7 +50,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review":[ "Fluffy clouds of pancakes. Toppings galore, coma guaranteed"],
-        "Location": "Punjab"
+        "Location": "Punjab",
+        "Created_by" : "swati"
     },
     {
         "Sr_No": 7,
@@ -53,7 +59,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Tiny burgers, big flavor. Like a carnival for your taste buds"],
-        "Location": "Punjab"
+        "Location": "Punjab",
+        "Created_by" : "Akshat"
     },
     {
         "Sr_No": 8,
@@ -61,7 +68,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Grandma's secret recipe meets a sprinkle of mystery. Delightfully confusing"],
-        "Location": "Punjab"
+        "Location": "Punjab",
+        "Created_by" : "Simran"
     },
     {
         "Sr_No": 9,
@@ -69,7 +77,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review":[ "Spaghetti on a pizza? It's a pasta lover's fever dream"],
-        "Location": "Jaipur"
+        "Location": "Jaipur",
+        "Created_by" : "Alisha"
     },
     {
         "Sr_No": 10,
@@ -77,7 +86,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Transported to Mexico with each bite. Margaritas not included"],
-        "Location": "Jaipur"
+        "Location": "Jaipur",
+        "Created_by" :"Alisha"
     },
     {
         "Sr_No": 11,
@@ -85,7 +95,9 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Burritos as big as flotation devices. Chew carefully to avoid concussion"],
-        "Location": "Jaipur"
+        "Location": "Jaipur",
+        "Created_by" : "Anushka"
+
     },
     {
         "Sr_No": 12,
@@ -93,7 +105,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["The 'Cowabunga Burger' a beefy beast. Roll out the door afterward"],
-        "Location": "Jaipur"
+        "Location": "Jaipur",
+        "Created_by" :"swati"
     },
     {
         "Sr_No": 13,
@@ -101,7 +114,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Secret society of sushi lovers. Don't ask about the 'mystery roll"],
-        "Location": "Delhi"
+        "Location": "Delhi",
+        "Created_by" : "swati"
     },
     {
         "Sr_No": 14,
@@ -109,7 +123,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Nachos reaching the heavens. Watch out for seagulls"],
-        "Location": "Delhi"
+        "Location": "Delhi",
+        "Created_by" : "Anushka"
     },
     {
         "Sr_No": 15,
@@ -117,7 +132,8 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Fried chicken like a thousand suns. Napkins required for the mess"],
-        "Location": "Delhi"
+        "Location": "Delhi",
+        "Created_by" : "Akshat"
     },
     {
         "Sr_No": 16,
@@ -125,6 +141,7 @@
         "img_url": "https://source.unsplash.com/random/200x200?sig=3",
         "Ratings": 4,
         "Review": ["Fluffy clouds of pancakes. Toppings galore, coma guaranteed"],
-        "Location": "Delhi"
+        "Location": "Delhi",
+        "Created_by" : "Akshat"
     }
 ]
