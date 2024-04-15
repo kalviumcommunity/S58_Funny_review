@@ -21,9 +21,11 @@ const RestaurantPage = () => {
         console.log(error);
       });
     setReview("");
+
   };
 
   useEffect(() => {
+    
     axios
       .get(`http://localhost:7777/restaurant/${id}`)
       .then((res) => {

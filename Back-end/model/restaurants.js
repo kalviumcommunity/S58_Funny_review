@@ -5,8 +5,8 @@ const restaurantsSchema=mongoose.Schema({
     img_url: String,
     Ratings: String,
     Review: [String],
-    
-    Location: String
+    Location: String,
+    Created_by : String
 })
 mongoose.pluralize(null)
 const restaurantsModel= mongoose.model("restaurants_collection",restaurantsSchema)

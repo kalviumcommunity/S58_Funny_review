@@ -63,8 +63,8 @@ export default function Login() {
     e.preventDefault(); 
     axios.post('http://localhost:7777/logIn/', logInfo)
     .then((response) => {
-        Cookies.set('username', response.data.username);
-        Cookies.set('password', response.data.password);
+        Cookies.set('token', response.data
+      );
         console.log(response.data)
     })
     .catch((error) => {
@@ -73,6 +73,7 @@ export default function Login() {
   } 
 
 
+  
 
   return (
     <>
