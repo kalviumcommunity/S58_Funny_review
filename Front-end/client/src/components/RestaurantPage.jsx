@@ -57,7 +57,7 @@ const RestaurantPage = () => {
           onChange={(e) => {
             handleReviewChange(e);
           }}
-          value={review}
+          value={review} 
         />
         <button type="submit" onClick={handleSubmit}>
           Submit Review

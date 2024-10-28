@@ -1,10 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inika&display=swap');
 *{
   padding: 0;
-  bottom: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-
-body {
-  min-height: 100vh;
-  min-width: 100vw;
+.flex{
+  display: flex;
 }
+.align-center{
+  align-items: center;
+}
+.space-between{
+  justify-content: space-between;
+}
+.column{
+  flex-direction: column;
+}
+.border{
+  border: 2px solid red;
+}
+header{
+  width: 100vw;
+  background-color: black;
+  height: 380px;
+  background: rgba(0,0,0,0.7)url(./assets/headerbg.png);   
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode:darken; 
+  padding-top: 1%;
+}
+nav{
+  width: 98vw;
+  height: 70px;
+  background-color: white;
+  margin-left: 1.8vw;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding-inline: 2vw;
+  
+}
+.register-btn{
+  background-color: white;
+  padding-inline: 15px;
+  border: 3px solid #FF7A00; 
+  color: #FF7A00;
+  width: 200px;
+  height: 45px;
+  padding: 8px;
+  padding-inline: 40px;
+  border-radius: 20px;
+  font-size: 18px;
+  box-shadow: 5px 5px 5px rgb(214, 214, 214);
+  cursor: pointer;
+}
+.logo img{
+  height: 70px;
+}
+.logo{
+  font-size: 32px;
+  font-family: 'Irish Grover';
+}
+.logo span{
+  color:#FF7A00;
+}
+.buttons-sec div{
+  font-size: 22px; 
+  cursor: pointer;
+  border-radius: 25px;
+  padding-inline:15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttons-sec div:hover {
+  transform: scale(1.05); 
+}
+.buttons-sec div:active {
+  transform: scale(0.95); 
+}
+
+.buttons-sec{
+  justify-content: space-between;
+  width: 250px;
+}
+.audio-btn{
+  color:#FF7A00;
+  padding: 5px ;
+  border: 1px solid rgb(246, 236, 218);
+}
+.book-btn{
+  color: white;
+  background-color: #FF7A00;
+  box-shadow: 2px 2px 2px rgb(214, 214, 214);
+  padding: 5px ;
+}
+header h1{
+  color: white;
+  font-size: 54px;
+  text-align: center;
+  font-family: 'Irish Grover';
+  padding-top: 30px;
+  letter-spacing: 4px;
+  text-shadow: 
+  2px 2px 0px #FF7A00,   /* Shadow to the bottom-right */
+  -2px 2px 0px #FF7A00,  /* Shadow to the bottom-left */
+  2px -2px 0px #FF7A00,  /* Shadow to the top-right */
+  -2px -2px 0px #FF7A00; /* Shadow to the top-left */
+}
+header p{
+  color: white;
+  font-size: 22px;
+  font-weight: lighter;
+  text-align: center;
+  font-family: 'Inika', serif;
+  letter-spacing: 4px;
+}
+.drop-down{
+  text-align: center;
+  margin-top: 5vh;
+}
+.display-belt div{
+  width: 250px;
+  height: 340px;
+  background-color: white;
+  margin: 20px;
+  box-shadow: 5px 5px 9px #ffbf84;
+}
+.display-belt{
+  flex-wrap: wrap;
+  padding-inline: 10vw;
+  font-size: 20px;
+  font-family: 'Inika', serif;
+}
+.cimg{
+  width: 100%;
+  height: 70%;
+  padding: 10px;
+}
+.delete-btn{
+    width: 6em;
+    height: 2em;
+    border-radius: 5px;
+    color: #FF7A00;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 2px solid #FF7A00;
+   }
+ .delete-btn:active{
+  background-image: linear-gradient(to right, #ff3c00 0%, #ec1e13 100%);
+ }
+ .view-btn{
+  width: 6em; 
+    height: 2em;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #FF7A00;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;             
+ }
+ .view-btn:active {
+  transform: scale(0.9);
+  background-color: #ff7b00;
+}
+button{
+  margin: 5px;
+}
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.hover:hover {
+  transform: translateY(-1px);
+}
+
+
+
+

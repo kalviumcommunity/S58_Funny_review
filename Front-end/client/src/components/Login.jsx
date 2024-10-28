@@ -45,7 +45,6 @@ export default function Login() {
     else{
       setLogInfo({...logInfo, password : e.target.value})
     }
-   
   }
 
   const handleSignUpSubmit=(e)=>{

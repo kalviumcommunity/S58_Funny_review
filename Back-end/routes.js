@@ -16,6 +16,7 @@ const signUpSchema = Joi.object({
 })
 
 
+
 RestaurantsRouter.get("/",(req,res)=>{
   res.send("Hello everyone!")
 })
@@ -69,7 +70,7 @@ RestaurantsRouter.get('/restaurant/:id', async (req,res)=>{
     res.status(500).json({ error: 'Failed to get the data' });
   }
 })
-
+ 
 // Read: Get all user details
 RestaurantsRouter.get('/user/', async (req,res)=>{
   try {
@@ -182,7 +183,6 @@ RestaurantsRouter.post('/LogIn/', async (req, res) => {
         res.status(500).send()
       }
     }
- 
 })
 
 

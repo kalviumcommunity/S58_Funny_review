@@ -9,6 +9,7 @@ import Select from "@mui/material/Select";
 import Cookies from 'js-cookie';
 
 
+
 export default function Main() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -124,19 +125,57 @@ export default function Main() {
 
   return (
     <div>
-      <div>
-       <button onClick={handleLogout}>LogOut</button>
-        <FormControl style={{width: '300px'}}>
-          <InputLabel id="simple-select-label">Location</InputLabel>
+      <header>
+
+      
+    <nav class="flex space-between align-center" >
+            <div class="logo flex align-center">
+                {/* <img src="./Images/Screenshot 2023-12-06 173323.png" alt=""> */}
+                <div ><span>Fun</span> Food</div>
+            </div>
+            <div class="menu flex space-between">
+              <div className=" buttons-sec flex">
+                <div className="book-btn flex align-center">
+                  City
+                </div>
+                <div className="audio-btn flex align-center">
+                  Users
+                </div>
+              </div>     
+            </div>
+            <div class="number flex align-center space-between">
+                <button className="register-btn">REGISTER</button>
+                {/* <button onClick={handleLogout}>LogOut</button> */}
+            </div>
+        </nav>
+        <h1>Turn Criticism into Comedy!</h1>
+        <p>Spice dish up with funny reviews</p>
+        <p>Post your own, or just enjoy the show!</p>
+        <div className="drop-down">
+       
+        <FormControl  style={{width: '300px'}}>
+          <InputLabel id="simple-select-label" sx={{ color: 'white' }} >Location</InputLabel>
           <Select
             labelId="simple-select-label"
             id="simple-select"
             value={location}
             label="Location"
             onChange={(e) => {
-              setLocation(e.target.value);
+              setLocation( e.target.value);
             }}
-            autoWidth
+            autoWidth 
+            sx={{
+              color: 'white', 
+              '.MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white', 
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white', 
+              },
+              '.MuiSvgIcon-root': {
+                color: 'white', 
+              }
+            }}
           >
             <MenuItem value={"Jaipur"}>Jaipur</MenuItem>
             <MenuItem value={"Punjab"}>Punjab</MenuItem>
@@ -144,47 +183,57 @@ export default function Main() {
             <MenuItem value={"Delhi"}>Delhi</MenuItem>
           </Select>
         </FormControl>
+        {/* <FormControl style={{ width: '300px' }}>
+          <InputLabel id="user-select-label" sx={{ color: 'white' }}>Users</InputLabel>
+          <Select
+            labelId="user-select-label"
+            id="user-select"
+            value={user}
+            onChange={handleUserSelect}
+            label="User"
+            autoWidth
+            sx={{
+              color: 'white', 
+              '.MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white', 
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white', 
+              },
+              '.MuiSvgIcon-root': {
+                color: 'white', 
+              }
+            }}
+          >
+          {userData.map((user) => (
+            <MenuItem key={user._id} value={user.username}>
+            {user.username}
+            </MenuItem>
+          ))}
+          </Select>
+        </FormControl> */}
       </div>
-      
-      
-      <table style={{ border: "2px solid black" }}>
-        <tbody>
-          <tr>
-            <th style={{ border: "2px solid black" }}>Restaurant name</th>
-            <th style={{ border: "2px solid black" }}>Rating</th>
-            <th style={{ border: "2px solid black" }}>Location</th>
-          </tr>
-          {filteredData.map((restaurant) => {
-            return (
-              <tr key={restaurant._id} style={{ border: "2px solid black" }}>
-                <td style={{ border: "2px solid black" }}>{restaurant.Name}</td>
-                <td style={{ border: "2px solid black" }}>
-                  {restaurant.Ratings}
-                </td>
-                <td style={{ border: "2px solid black" }}>
-                  {restaurant.Location}
-                </td>
-
-                <td>
-                  <Link to={`/restaurant/${restaurant._id}`}>
-                    <button>View</button>
-                  </Link>
-                </td>
-                <td>
-                  <button
-                    onClick={() => {
-                      handleDelete(restaurant._id);
-                    }}
-                    style={{ backgroundColor: "red", color: "white" }}
-                  >
-                    DELETE
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      </header>   
+      <div className="border display-belt flex space-between">        
+      { filteredData.map((restaurant) =>{
+        return(
+        <div>
+        <img className="cimg border" src={restaurant.img_url} alt="" />
+        <p className="title">{restaurant.Name}</p>
+        {/* <span className="flex rating">
+          <p>Rating: {restaurant.Ratings}</p>
+        </span> */}
+        <span className="flex space-between">
+        <button className="delete-btn hover" onClick={() => {handleDelete(restaurant._id);}} >DELETE
+        </button>
+        <Link to={`/restaurant/${restaurant._id}`}>
+          <button className="view-btn hover">View</button>
+        </Link>
+        </span>
+        
+      </div>)
+   
+      })} </div> 
       
       <button onClick={()=>handleAdd()}>+</button>
       {addNew ? (
@@ -221,23 +270,7 @@ export default function Main() {
           <div></div>
         )}
 
-<FormControl style={{ width: '300px' }}>
-  <InputLabel id="user-select-label">Users</InputLabel>
-  <Select
-    labelId="user-select-label"
-    id="user-select"
-    value={user}
-    onChange={handleUserSelect}
-    label="User"
-    autoWidth
-  >
-    {userData.map((user) => (
-      <MenuItem key={user._id} value={user.username}>
-        {user.username}
-      </MenuItem>
-    ))}
-  </Select>
-</FormControl>
+
 
             
 

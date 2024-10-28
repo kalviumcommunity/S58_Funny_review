@@ -19,7 +19,7 @@ app.use('', RestaurantsRouter);
 app.listen(port,async() => { 
   try {
     console.log(connection)
-    await connection;
+    await connection;56
     console.log("Connected to DB successfully");
   } catch (error) {
      console.log("Error connecting to DB");
